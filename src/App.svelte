@@ -54,32 +54,70 @@
 
 <main>
   <MainFrame>
-    <TextArea operation={mathOps} result="" />
     {#if result !== undefined}
-      <TextArea operation="" {result} />
+      <TextArea operation={mathOps} {result} />
+    {:else}
+      <TextArea operation={mathOps} result="" />
     {/if}
     <!-- Div for Numbers -->
     <div class="numbers">
       {#each numbers as number}
-        <CustomButton on:click={() => keepWriting(number)} props={number} />
+        <CustomButton
+          on:click={() => keepWriting(number)}
+          props={number}
+          myClass="numbers"
+        />
       {/each}
     </div>
     <!-- Div for Operators -->
     <div class="operators">
       {#each operators as operator}
-        <CustomButton on:click={() => keepWriting(operator)} props={operator} />
+        <CustomButton
+          on:click={() => keepWriting(operator)}
+          props={operator}
+          myClass="operators"
+        />
       {/each}
+
+      <!-- Clear operation -->
+      <CustomButton on:click={clearAll} props="AC" myClass="clear" />
+      <!-- Backspace -->
+      <CustomButton on:click={clearLast} props="C" myClass="clear" />
+      <!-- Equals -->
+      <CustomButton on:click={showResult} props="=" myClass="equal" />
+      <!-- Show History -->
+      <CustomButton
+        on:click={toggleHistory}
+        props="History"
+        myClass="history"
+      />
     </div>
-    <!-- Clear operation -->
-    <CustomButton on:click={clearAll} props="AC" />
-    <!-- Backspace -->
-    <CustomButton on:click={clearLast} props="C" />
-    <!-- Equals -->
-    <CustomButton on:click={showResult} props="=" />
-    <!-- Show History -->
-    <CustomButton on:click={toggleHistory} props="History" />
   </MainFrame>
   {#if showPastHistory}
     <ShowHistory items={$history} />
   {/if}
 </main>
+
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0 0;
+    background-color: bisque;
+  }
+  .numbers {
+    justify-content: space-evenly;
+    align-items: center;
+    float: left;
+    width: 65%;
+  }
+  .operators {
+    justify-content: space-evenly;
+    align-items: center;
+    float: right;
+    width: 35%;
+  }
+</style>
