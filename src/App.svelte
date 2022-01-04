@@ -35,6 +35,7 @@
 			background: #272828;
 			height: 100vh;
 			overflow: hidden;
+			-webkit-tap-highlight-color: transparent;
 		}
 	</style>
 </svelte:head>

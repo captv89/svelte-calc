@@ -39,6 +39,7 @@
 		justify-content: space-around;
 		align-items: stretch;
 		align-content: space-evenly;
+        -webkit-tap-highlight-color: transparent;
 	}
 
 	#display {
@@ -51,6 +52,7 @@
 		margin-bottom: 1rem;
 		font-family: 'VT323';
 		background-color: #f4f4f4;
+        -webkit-tap-highlight-color: transparent;
 	}
 
 	#display > div {
@@ -83,22 +85,25 @@
 		background-color: #f4f4f4;
 		color: black;
 		border-radius: 5px;
+        border: none;
 		text-align: center;
 		text-decoration: none;
-		outline: none;
-        font-family: 'VT323';
+		outline: none !important;
+		font-family: 'VT323';
 		font-weight: 400;
 		font-size: 1.2em;
 		transition-duration: 0.4s;
 		cursor: pointer;
 		box-shadow: 0 4px #999;
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	button:active {
 		background-color: #cecece;
-		outline: none;
-		box-shadow: 0 1px #666;
+		outline: none !important;
+		box-shadow: 0 0.5px #666;
 		transform: translateY(4px);
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	#ac {
